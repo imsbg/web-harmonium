@@ -1,5 +1,5 @@
 <div align="right">
-  🌐 <strong>English</strong> | <a href="README-od.md">ଓଡ଼ିଆ (Odia)</a>
+  🌐 <strong>English</strong> | <a href="README-od.md">ଓଡ଼ିଆ</a>
 </div>
 
 # 🎹 Web Harmonium Pro
