@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <!-- ========================================================= -->
+    <!-- REAL SEO META DATA (Ready to copy-paste)                  -->
+    <!-- ========================================================= -->
+
+    <!-- Encoding & Mobile Viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Primary Search Engine Tags -->
+    <title>Web Harmonium Pro | Play Virtual Indian Harmonium Online</title>
+    <meta name="title" content="Web Harmonium Pro | Play Virtual Indian Harmonium Online">
+    <meta name="description" content="Play Web Harmonium Pro online. A high-quality, professional virtual Indian harmonium keyboard with custom notations, real studio sounds, and smooth mobile touch support.">
+    <meta name="keywords" content="Web Harmonium, Web Harmonium Pro, Virtual Harmonium, Online Harmonium, Play Harmonium Online, Harmonium Keyboard, Indian Instrument Simulator, Sandeep Biswal G">
+    <meta name="author" content="Sandeep Biswal G">
+
+        <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/png" href="https://imsbg.github.io/web-harmonium/webhpro.png">
+    <link rel="apple-touch-icon" href="https://imsbg.github.io/web-harmonium/webhpro.png">
+    <link rel="shortcut icon" href="https://imsbg.github.io/web-harmonium/webhpro.png">
+
+
+    <!-- Advanced Crawler Directives (Tells Google to rank this highly) -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn SEO) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Web Harmonium Pro">
+    <meta property="og:title" content="Web Harmonium Pro | Play Virtual Indian Harmonium Online">
+    <meta property="og:description" content="Experience the best virtual harmonium on the web. Features real sounds, custom notations, and multi-touch support for mobile. Play instantly for free!">
+    <meta property="og:image" content="/banner-webh.png">
+
+    <!-- Twitter Card SEO -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Web Harmonium Pro | Play Virtual Indian Harmonium Online">
+    <meta name="twitter:description" content="Experience the best virtual harmonium on the web. Features real sounds, custom notations, and multi-touch support for mobile. Play instantly for free!">
+    <meta name="twitter:image" content="/banner-webh.png">
+
+    <!-- Mobile Browser SEO & Web App Formatting -->
+    <meta name="theme-color" content="#121212">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Web Harmonium Pro">
+    <meta name="application-name" content="Web Harmonium Pro">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #121212;
+            --panel-color: #1e1e1e;
+            --accent-color: #4CAF50;
+            --white-key: #ffffff;
+            --black-key: #222;
+            --active-color: #ffcc00;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* --- Desktop Header --- */
+        header {
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #000;
+            border-bottom: 1px solid #333;
+        }
+
+        header h1 {
+            margin: 0;
+            font-weight: 300;
+            letter-spacing: 3px;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header-btn {
+            background: transparent;
+            color: white;
+            border: 1px solid #444;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .header-btn:hover { background: #333; color: var(--accent-color); }
+
+        /* --- Desktop Keyboard Area (Your Original) --- */
+        .piano-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #222 0%, #121212 100%);
+            padding: 15px;
+        }
+
+        .keyboard-frame {
+            padding: 20px;
+            background: #000;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 10px #444;
+            position: relative;
+        }
+
+        .keys-wrapper {
+            display: flex;
+            position: relative;
+            height: 200px;
+        }
+
+        .key {
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.05s, background 0.1s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: #888;
+        }
+
+        .white-key {
+            width: 45px;
+            height: 180px;
+            background: var(--white-key);
+            border: 1px solid #ccc;
+            border-radius: 0 0 4px 4px;
+            z-index: 1;
+            box-shadow: inset 0 -4px 0 #bbb;
+        }
+
+        .black-key {
+            width: 30px;
+            height: 110px;
+            background: var(--black-key);
+            border-radius: 0 0 3px 3px;
+            z-index: 2;
+            margin-left: -15px;
+            margin-right: -15px;
+            color: #eee;
+            box-shadow: inset 0 -4px 0 #000;
+        }
+
+        .key.active {
+            background: var(--active-color) !important;
+            transform: translateY(3px);
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+            color: #000;
+        }
+
+        .hide-labels .key span { display: none; }
+
+        /* --- Notation Section (Your Original) --- */
+        .notation-section {
+            flex: 1;
+            background: #181818;
+            padding: 15px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-top: 1px solid #333;
+        }
+
+        .notation-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        #notation-input {
+            flex: 1;
+            background: #000;
+            border: 1px solid #444;
+            color: var(--accent-color);
+            padding: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            border-radius: 4px;
+            resize: none;
+        }
+
+        .control-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            padding: 5px 15px;
+            border-radius: 5px;
+            border: 1px solid #444;
+        }
+
+        .control-box label {
+            font-size: 0.65rem;
+            color: #aaa;
+            text-transform: uppercase;
+            white-space: nowrap;
+            margin-bottom: 3px;
+        }
+
+        .selection-tool input {
+            width: 60px;
+            background: #222;
+            color: var(--accent-color);
+            border: 1px solid #555;
+            border-radius: 3px;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            padding: 2px;
+            height: 22px;
+        }
+
+        .play-btn {
+            background: var(--accent-color);
+            min-width: 120px;
+            font-weight: bold;
+            height: 45px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .play-btn:hover { background: #45a049; }
+
+        /* --- Dashboard (Your Original) --- */
+        .dashboard {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: stretch;
+            background: var(--panel-color);
+            padding: 10px 15px;
+            border-top: 1px solid #333;
+            gap: 10px;
+        }
+
+        .control-card {
+            background: #252525;
+            padding: 10px 15px;
+            border-radius: 8px;
+            flex: 1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 100px;
+        }
+
+        .control-card h3 {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            margin: 0 0 5px 0;
+            color: #777;
+        }
+
+        .val-display {
+            font-size: 1rem;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .btn-group { display: flex; justify-content: center; gap: 5px; margin-top: 5px; }
+
+        button.sm-btn {
+            background: #333; color: white; border: none; padding: 4px 10px;
+            border-radius: 4px; cursor: pointer; font-size: 0.8rem;
+        }
+        button.sm-btn:hover { background: #444; }
+
+        /* --- Modals --- */
+        .modal-overlay {
+            display: none; position: fixed; top:0; left:0; width:100%; height:100%;
+            background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center;
+        }
+        .modal-box {
+            background: #1e1e1e; padding: 20px; border-radius: 8px; border: 1px solid #444; width: 320px; text-align: center;
+        }
+        .modal-box a { color: var(--accent-color); text-decoration: none; }
+        .modal-box a:hover { text-decoration: underline; }
+
+        #mobile-rotate-overlay {
+            display: none; position: fixed; top:0; left:0; width:100%; height:100%;
+            background: #000; z-index: 9999; flex-direction: column; align-items: center; justify-content: center;
+        }
+
+        /* =========================================================
+           MOBILE UI OVERRIDE - Matches Your Screenshot Perfectly
+           ========================================================= */
+        @media (max-width: 900px) {
+            body { 
+                flex-direction: column; 
+                background: #1a1a1a; /* Dark gray from screenshot */
+            }
+            
+            /* Hide Desktop Elements */
+            header, .notation-section { display: none !important; }
+
+            /* Dashboard moves to top and mimics screenshot cards */
+            .dashboard {
+                order: 1; /* Moves to top */
+                border-top: none;
+                background: #1a1a1a;
+                padding: 15px;
+                gap: 15px;
+                flex: 0 0 auto;
+            }
+
+            .control-card {
+                background: #222; /* Darker card */
+                border-radius: 12px;
+                padding: 15px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            }
+
+            /* Make green elements match the screenshot */
+            .control-card input[type="range"] { accent-color: #4CAF50; }
+            .val-display { color: #4CAF50; font-size: 1.2rem; }
+            .control-card h3 { color: #888; font-size: 0.75rem; letter-spacing: 1px; }
+
+            /* Piano moves to bottom and fills screen */
+            .piano-section {
+                order: 2; /* Moves to bottom */
+                flex: 1;
+                padding: 10px;
+                background: #1a1a1a;
+                display: flex;
+                align-items: flex-end;
+            }
+
+            .keyboard-frame {
+                width: 100%;
+                height: 100%;
+                background: transparent;
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .keys-wrapper {
+                width: 100%;
+                height: 100%;
+                justify-content: center;
+            }
+
+            /* Adjust keys for mobile landscape touch */
+            .white-key { width: 6.5vw; height: 100%; border-radius: 0 0 6px 6px; }
+            .black-key { width: 4.5vw; height: 60%; margin-left: -2.25vw; margin-right: -2.25vw; }
+            
+            /* Show Mobile overlay */
+            #mobile-rotate-overlay { display: flex; }
+        }
+        
+        /* Hide Mobile overlay if already in landscape on mobile */
+        @media (max-width: 900px) and (orientation: landscape) {
+            #mobile-rotate-overlay { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Mobile Setup Overlay (Required by browsers to trigger Fullscreen/Rotate) -->
+<div id="mobile-rotate-overlay">
+    <i class="fas fa-mobile-alt" style="font-size: 40px; color: var(--accent-color); transform: rotate(90deg); margin-bottom: 20px;"></i>
+    <h2 style="color:white; margin-bottom: 30px;">Rotate Device to Play</h2>
+    <button onclick="startMobileFullscreen()" style="padding: 15px 40px; background: var(--accent-color); color: white; border-radius: 30px; font-weight: bold; font-size: 1.1rem; border:none; cursor:pointer;">
+        Enter Fullscreen Mode
+    </button>
+</div>
+
+<!-- Info/Credit Modal -->
+<div id="info-modal" class="modal-overlay">
+    <div class="modal-box">
+        <h2 style="color:var(--accent-color); margin-top:0;">Web Harmonium Pro</h2>
+        <hr style="border:1px solid #333; margin:15px 0;">
+        <p style="font-size:0.9rem; color:#ccc;">Source code credit:<br> 
+            <a href="https://github.com/rajaramaniyer/rajaramaniyer.github.io" target="_blank">Rajaraman Iyer</a>
+        </p>
+        <p style="font-size:0.9rem; color:#ccc; margin-top:15px;">Modified UI & Enhancements credit:<br> 
+            <a href="https://imsbg.github.io/" target="_blank">Sandeep Biswal G</a>
+        </p>
+        <button onclick="document.getElementById('info-modal').style.display='none'" class="play-btn" style="width:100%; margin-top:15px; height:40px;">Close</button>
+    </div>
+</div>
+
+<header>
+    <h1><i class="fas fa-microchip"></i> Web Harmonium Pro</h1>
+    <div class="header-actions">
+        <button class="header-btn" onclick="shareSite()" title="Share"><i class="fas fa-share-alt"></i></button>
+        <button class="header-btn" onclick="document.getElementById('info-modal').style.display='flex'" title="Credits"><i class="fas fa-info-circle"></i></button>
+    </div>
+</header>
+
+<div class="piano-section">
+    <div class="keyboard-frame">
+        <div class="keys-wrapper" id="piano-keyboard">
+            <!-- Populated by JS -->
+        </div>
+    </div>
+</div>
+
+<div class="notation-section">
+    <textarea id="notation-input" spellcheck="false" autocomplete="off" placeholder="Write notes here... (e.g., 45T 5 T54). Use Selection Tool to adjust speeds smoothly!"></textarea>
+    
+    <div class="notation-controls">
+        <div class="control-box" style="flex:1;">
+            <label>Global Speed: <span id="tempo-display" style="color:var(--accent-color); font-weight:bold;">400ms</span></label>
+            <input type="range" id="tempo-slider" min="100" max="1000" step="50" value="400" oninput="updateTempo(this.value)" style="width: 100%; accent-color: var(--accent-color);">
+        </div>
+
+        <div class="control-box selection-tool">
+            <label>Custom Selection Time</label>
+            <div style="display:flex; gap:5px; align-items:center;">
+                <input type="number" id="custom-time-input" value="800" step="50" min="50" max="2000">
+                <button onclick="applyCustomSpeed()" class="sm-btn" style="background:var(--accent-color); height:22px; display:flex; align-items:center;"><i class="fas fa-check" style="margin-right:4px;"></i> Set</button>
+            </div>
+        </div>
+
+        <button id="play-btn" class="play-btn" onclick="toggleAutoPlay()"><i class="fas fa-play"></i> Play</button>
+        <button onclick="clearNotation()" style="background: #444; color:white; border:none; height:45px; width:45px; border-radius:4px; cursor:pointer;"><i class="fas fa-trash"></i></button>
+    </div>
+</div>
+
+<div class="dashboard">
+    <div class="control-card">
+        <h3>Volume</h3>
+        <span class="val-display" id="volume-val">30%</span>
+        <input type="range" min="0" max="100" value="30" oninput="onGainChange(this.value)" style="width:100%;">
+    </div>
+
+    <div class="control-card">
+        <h3>Reverb</h3>
+        <input type="checkbox" id="reverb-toggle" onchange="updateReverbState(this.checked)" style="transform: scale(1.5); margin: 5px;">
+        <small id="reverb-status" style="font-size: 10px; color: #888; display:block; margin-top:5px;">OFF</small>
+    </div>
+
+    <div class="control-card">
+        <h3>Labels</h3>
+        <input type="checkbox" checked onchange="toggleLabels(this.checked)" style="transform: scale(1.5); margin: 5px;">
+        <small style="font-size: 10px; color: #888; display:block; margin-top:5px;">English</small>
+    </div>
+
+    <div class="control-card">
+        <h3>Key (<span id="rootNote">C</span>)</h3>
+        <span class="val-display" id="transpose-val">0</span>
+        <div class="btn-group">
+            <button class="sm-btn" onclick="shiftSemitone(-1)">-</button>
+            <button class="sm-btn" onclick="shiftSemitone(1)">+</button>
+        </div>
+    </div>
+
+    <div class="control-card">
+        <h3>Octave</h3>
+        <span class="val-display" id="octave-val">4</span>
+        <div class="btn-group">
+            <button class="sm-btn" onclick="shiftOctave(-1)">-</button>
+            <button class="sm-btn" onclick="shiftOctave(1)">+</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const sampleURL = 'harmonium.wav';
+    let context, audioBuffer, gainNode, reverbNode;
+    let sourceNodes = {};
+    let isAutoPlaying = false;
+    let defaultDuration = 400; 
+    let audioInitialized = false;
+    
+    const keyConfig = [
+        {k: '`', midi: 55, type: 'white'}, {k: '1', midi: 56, type: 'black'},
+        {k: 'q', midi: 57, type: 'white'}, {k: '2', midi: 58, type: 'black'},
+        {k: 'w', midi: 59, type: 'white'},
+        {k: 'e', midi: 60, type: 'white'}, {k: '4', midi: 61, type: 'black'},
+        {k: 'r', midi: 62, type: 'white'}, {k: '5', midi: 63, type: 'black'},
+        {k: 't', midi: 64, type: 'white'},
+        {k: 'y', midi: 65, type: 'white'}, {k: '7', midi: 66, type: 'black'},
+        {k: 'u', midi: 67, type: 'white'}, {k: '8', midi: 68, type: 'black'},
+        {k: 'i', midi: 69, type: 'white'}, {k: '9', midi: 70, type: 'black'},
+        {k: 'o', midi: 71, type: 'white'},
+        {k: 'p', midi: 72, type: 'white'}, {k: '-', midi: 73, type: 'black'},
+        {k: '[', midi: 74, type: 'white'}, {k: '=', midi: 75, type: 'black'},
+        {k: ']', midi: 76, type: 'white'},
+        {k: '\\', midi: 77, type: 'white'}
+    ];
+
+    const validKeysArr = ['`','1','q','2','w','e','4','r','5','t','y','7','u','8','i','9','o','p','-','[','=',']','\\'];
+    const validSwaramsArr = ['S','R','G','M','P','D','N'];
+    const swaramMap = { 'S': 'e', 'R': 'r', 'G': 't', 'M': 'y', 'P': 'u', 'D': 'i', 'N': 'o', 'S2': 'p' };
+    
+    let currentOctave = 3;
+    let transpose = 0;
+    const octaveMap = [-36, -24, -12, 0, 12, 24, 36];
+
+    // Initialize audio without start overlay (Triggers on first action)
+    async function initAudio() {
+        if (audioInitialized) {
+            if (context.state === 'suspended') await context.resume();
+            return;
+        }
+        audioInitialized = true;
+        context = new (window.AudioContext || window.webkitAudioContext)();
+        gainNode = context.createGain();
+        gainNode.gain.value = 0.3;
+        gainNode.connect(context.destination);
+
+        try {
+            const resp = await fetch(sampleURL);
+            const arrayBuf = await resp.arrayBuffer();
+            audioBuffer = await context.decodeAudioData(arrayBuf);
+        } catch (e) {
+            console.error("Audio sample could not be loaded.");
+        }
+        initReverb();
+    }
+
+    // Capture first desktop interaction to enable sound
+    const startAudioContext = () => { initAudio(); removeInitEvents(); };
+    const removeInitEvents = () => {
+        ['mousedown', 'keydown'].forEach(e => document.removeEventListener(e, startAudioContext));
+    };
+    ['mousedown', 'keydown'].forEach(e => document.addEventListener(e, startAudioContext));
+
+    function renderKeyboard() {
+        const wrapper = document.getElementById('piano-keyboard');
+        wrapper.innerHTML = '';
+        keyConfig.forEach(cfg => {
+            const div = document.createElement('div');
+            div.className = `key ${cfg.type}-key`;
+            div.id = `key-${cfg.midi}`;
+            div.innerHTML = `<span>${cfg.k.toUpperCase()}</span>`;
+            
+            // Mouse Events
+            div.onmousedown = () => { initAudio(); noteOn(cfg.midi); };
+            div.onmouseup = () => noteOff(cfg.midi);
+            div.onmouseleave = () => noteOff(cfg.midi);
+
+            // Mobile Touch Events (Fixes bugs)
+            div.addEventListener('touchstart', (e) => { e.preventDefault(); initAudio(); noteOn(cfg.midi); });
+            div.addEventListener('touchend', (e) => { e.preventDefault(); noteOff(cfg.midi); });
+            div.addEventListener('touchcancel', (e) => { e.preventDefault(); noteOff(cfg.midi); });
+
+            wrapper.appendChild(div);
+        });
+    }
+
+    // Mobile Fullscreen & Orientation Lock
+    async function startMobileFullscreen() {
+        document.getElementById('mobile-rotate-overlay').style.display = 'none';
+        initAudio();
+        try {
+            if (document.documentElement.requestFullscreen) {
+                await document.documentElement.requestFullscreen();
+            }
+            if (screen.orientation && screen.orientation.lock) {
+                await screen.orientation.lock('landscape');
+            }
+        } catch (e) { console.log("Fullscreen/Rotate API not supported or denied."); }
+    }
+
+    function shareSite() {
+        if (navigator.share) {
+            navigator.share({ title: 'Web Harmonium Pro', url: window.location.href });
+        } else {
+            navigator.clipboard.writeText(window.location.href);
+            alert("Link copied!");
+        }
+    }
+
+    function noteOn(midiNote) {
+        if (sourceNodes[midiNote]) return; 
+        const visualKey = document.getElementById(`key-${midiNote}`);
+        if (visualKey) visualKey.classList.add('active');
+        if (!audioBuffer || !context) return;
+
+        const source = context.createBufferSource();
+        source.buffer = audioBuffer;
+        source.loop = true;
+        source.loopStart = 0.8;
+
+        const actualMidi = midiNote + octaveMap[currentOctave] + transpose;
+        source.detune.value = (actualMidi - 60) * 100;
+
+        source.connect(gainNode);
+        source.start(0);
+        sourceNodes[midiNote] = source;
+    }
+
+    function noteOff(midiNote) {
+        const visualKey = document.getElementById(`key-${midiNote}`);
+        if (visualKey) visualKey.classList.remove('active');
+        if (sourceNodes[midiNote]) {
+            sourceNodes[midiNote].stop();
+            delete sourceNodes[midiNote];
+        }
+    }
+
+    function applyCustomSpeed() {
+        const textarea = document.getElementById('notation-input');
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        if (start === end) { alert("Please highlight/select notes with your mouse first!"); return; }
+
+        const customTime = document.getElementById('custom-time-input').value;
+        const selectedText = textarea.value.substring(start, end);
+        let cleanText = selectedText.replace(/:\d+/g, '').replace(/,/g, '');
+        let newText = "";
+
+        for (let i = 0; i < cleanText.length; i++) {
+            let char = cleanText[i];
+            if (char.toUpperCase() === 'S' && cleanText[i+1] === '2') {
+                newText += "S2:" + customTime;
+                if (i + 2 < cleanText.length && /\d/.test(cleanText[i+2])) newText += ",";
+                i++; continue;
+            }
+            let isNote = validKeysArr.includes(char.toLowerCase()) || validSwaramsArr.includes(char.toUpperCase());
+            if (isNote) {
+                newText += char + ":" + customTime;
+                if (i + 1 < cleanText.length && /\d/.test(cleanText[i+1])) newText += ",";
+            } else { newText += char; }
+        }
+
+        textarea.value = textarea.value.substring(0, start) + newText + textarea.value.substring(end);
+        textarea.setSelectionRange(start, start + newText.length);
+        textarea.focus();
+    }
+
+    function updateTempo(val) {
+        defaultDuration = parseInt(val);
+        document.getElementById('tempo-display').innerText = val + "ms";
+    }
+
+    function parseNotation(rawText) {
+        let text = rawText.replace(/x\d+/gi, ''); 
+        let sequence = [];
+        let i = 0;
+        
+        while (i < text.length) {
+            let char = text[i];
+            if (char === ',') { i++; continue; }
+            if (char === ' ') { sequence.push({ key: '_', duration: defaultDuration / 2 }); i++; continue; }
+            if (char === '\n' || char === '_') { sequence.push({ key: '_', duration: defaultDuration }); i++; continue; }
+
+            let mappedKey = char.toLowerCase();
+            if (swaramMap[char.toUpperCase()]) mappedKey = swaramMap[char.toUpperCase()];
+
+            let cfg = keyConfig.find(c => c.k === mappedKey);
+            if (cfg) {
+                let duration = defaultDuration;
+                if (i + 1 < text.length && text[i+1] === ':') {
+                    let j = i + 2;
+                    let numStr = '';
+                    while (j < text.length && /\d/.test(text[j])) { numStr += text[j]; j++; }
+                    if (numStr) duration = parseInt(numStr);
+                    i = j - 1; 
+                }
+                sequence.push({ key: mappedKey, duration: duration, midi: cfg.midi });
+            }
+            i++;
+        }
+        return sequence;
+    }
+
+    async function toggleAutoPlay() {
+        await initAudio();
+        const btn = document.getElementById('play-btn');
+
+        if (isAutoPlaying) {
+            isAutoPlaying = false;
+            btn.innerHTML = '<i class="fas fa-play"></i> Play';
+            btn.style.background = 'var(--accent-color)';
+            keyConfig.forEach(c => noteOff(c.midi)); 
+            return;
+        }
+
+        isAutoPlaying = true;
+        btn.innerHTML = '<i class="fas fa-stop"></i> Stop';
+        btn.style.background = '#d32f2f'; 
+
+        const text = document.getElementById('notation-input').value;
+        const sequence = parseNotation(text);
+        
+        for (let note of sequence) {
+            if (!isAutoPlaying) break; 
+            if (note.key === '_') {
+                await new Promise(r => setTimeout(r, note.duration));
+            } else {
+                noteOn(note.midi);
+                await new Promise(r => setTimeout(r, note.duration)); 
+                noteOff(note.midi);
+                if (!isAutoPlaying) break;
+                await new Promise(r => setTimeout(r, 40));
+            }
+        }
+        isAutoPlaying = false;
+        btn.innerHTML = '<i class="fas fa-play"></i> Play';
+        btn.style.background = 'var(--accent-color)';
+    }
+
+    function clearNotation() {
+        document.getElementById('notation-input').value = '';
+        if (isAutoPlaying) toggleAutoPlay(); 
+    }
+
+    function onGainChange(v) {
+        if(gainNode) gainNode.gain.value = v / 100;
+        document.getElementById('volume-val').innerText = v + "%";
+    }
+
+    function toggleLabels(show) {
+        const wrapper = document.getElementById('piano-keyboard');
+        show ? wrapper.classList.remove('hide-labels') : wrapper.classList.add('hide-labels');
+    }
+
+    function shiftOctave(d) {
+        if (currentOctave + d >= 0 && currentOctave + d <= 6) {
+            currentOctave += d;
+            document.getElementById('octave-val').innerText = currentOctave + 1;
+        }
+    }
+
+    function shiftSemitone(d) {
+        transpose += d;
+        document.getElementById('transpose-val').innerText = transpose;
+        const names = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+        document.getElementById('rootNote').innerText = names[((transpose % 12) + 12) % 12];
+    }
+
+    async function initReverb() {
+        if (!context) return;
+        reverbNode = context.createConvolver();
+        try {
+            const r = await fetch('reverb.wav');
+            const b = await r.arrayBuffer();
+            reverbNode.buffer = await context.decodeAudioData(b);
+        } catch(e) {}
+    }
+
+    function updateReverbState(on) {
+        document.getElementById('reverb-status').innerText = on ? "ON" : "OFF";
+        if (on && reverbNode && reverbNode.buffer) {
+            gainNode.disconnect();
+            gainNode.connect(reverbNode).connect(context.destination);
+        } else {
+            try { 
+                gainNode.disconnect();
+                gainNode.connect(context.destination);
+            } catch(e) {}
+        }
+    }
+
+    window.onkeydown = (e) => { 
+        if(e.repeat || document.activeElement.id === 'notation-input') return; 
+        initAudio();
+        const c = keyConfig.find(x => x.k === e.key.toLowerCase()); 
+        if(c) noteOn(c.midi); 
+    };
+
+    window.onkeyup = (e) => { 
+        if(document.activeElement.id === 'notation-input') return;
+        const c = keyConfig.find(x => x.k === e.key.toLowerCase()); 
+        if(c) noteOff(c.midi); 
+    };
+
+    window.onload = renderKeyboard;
+</script>
+</body>
+</html>
