@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
  <!-- ========================================================= -->
-    <!-- REAL SEO META DATA (Ready to copy-paste)                  -->
+    <!-- REAL SEO META DATA      -->
     <!-- ========================================================= -->
 
     <!-- Encoding & Mobile Viewport -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
 
     <!-- Primary Search Engine Tags -->
     <title>Web Harmonium Pro | Play Virtual Indian Harmonium Online</title>
@@ -73,7 +73,10 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
+            width: 100vw;
             overflow: hidden;
+            position: fixed; /* Strictly locks body to prevent iOS bounce/zoom */
+            top: 0; left: 0;
         }
 
         /* --- Desktop Header --- */
@@ -118,6 +121,7 @@
             align-items: center;
             background: radial-gradient(circle, #222 0%, #121212 100%);
             padding: 15px;
+            width: 100%;
         }
 
         .keyboard-frame {
@@ -188,6 +192,7 @@
             flex-direction: column;
             gap: 10px;
             border-top: 1px solid #333;
+            width: 100%;
         }
 
         .notation-controls {
@@ -262,6 +267,7 @@
             padding: 10px 15px;
             border-top: 1px solid #333;
             gap: 10px;
+            width: 100%;
         }
 
         .control-card {
@@ -299,22 +305,31 @@
 
         /* --- Modals --- */
         .modal-overlay {
-            display: none; position: fixed; top:0; left:0; width:100%; height:100%;
+            display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
             background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center;
-            padding: 20px; box-sizing: border-box; /* Added to keep safe boundaries */
+            padding: 20px; box-sizing: border-box;
         }
         .modal-box {
             background: #1e1e1e; padding: 20px; border-radius: 8px; border: 1px solid #444; 
-            width: 100%; max-width: 320px; /* Modified to prevent overflow on small screens */
+            width: 100%; max-width: 320px; 
             text-align: center; box-sizing: border-box;
         }
         .modal-box a { color: var(--accent-color); text-decoration: none; }
         .modal-box a:hover { text-decoration: underline; }
 
         #mobile-rotate-overlay {
-            display: none; position: fixed; top:0; left:0; width:100%; height:100%;
-            background: #000; z-index: 9999; flex-direction: column; align-items: center; justify-content: center;
-            padding: 20px; text-align: center; box-sizing: border-box; /* Ensures text wraps perfectly without zooming out */
+            display: none; 
+            position: fixed; 
+            top: 0; left: 0; right: 0; bottom: 0; /* Prevents 100vh address bar bugs */
+            background: #000; 
+            z-index: 9999; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center;
+            padding: 20px; 
+            text-align: center; 
+            box-sizing: border-box; 
+            overflow: hidden;
         }
 
         /* =========================================================
@@ -324,6 +339,7 @@
             body { 
                 flex-direction: column; 
                 background: #1a1a1a; 
+                position: fixed; /* Keep it strictly bounded */
             }
             
             /* Hide Desktop Elements */
@@ -344,10 +360,11 @@
                 border-radius: 12px;
                 padding: 15px;
                 box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+                min-width: 0; /* Prevents flex overflow */
             }
 
             /* Make green elements match the screenshot */
-            .control-card input[type="range"] { accent-color: #4CAF50; }
+            .control-card input[type="range"] { accent-color: #4CAF50; width: 100%; }
             .val-display { color: #4CAF50; font-size: 1.2rem; }
             .control-card h3 { color: #888; font-size: 0.75rem; letter-spacing: 1px; }
 
@@ -359,6 +376,7 @@
                 background: #1a1a1a;
                 display: flex;
                 align-items: flex-end;
+                overflow: hidden;
             }
 
             .keyboard-frame {
@@ -391,11 +409,11 @@
 </head>
 <body>
 
-<!-- Mobile Setup Overlay (Required by browsers to trigger Fullscreen/Rotate) -->
+<!-- Mobile Setup Overlay (Strictly bounded and responsive to fit without zoom) -->
 <div id="mobile-rotate-overlay">
-    <i class="fas fa-mobile-alt" style="font-size: 40px; color: var(--accent-color); transform: rotate(90deg); margin-bottom: 20px;"></i>
-    <h2 style="color:white; margin-bottom: 30px;">Rotate Device to Play</h2>
-    <button onclick="startMobileFullscreen()" style="padding: 15px 40px; background: var(--accent-color); color: white; border-radius: 30px; font-weight: bold; font-size: 1.1rem; border:none; cursor:pointer; max-width: 100%; box-sizing: border-box; word-wrap: break-word;">
+    <i class="fas fa-mobile-alt" style="font-size: 3rem; color: var(--accent-color); transform: rotate(90deg); margin-bottom: 20px;"></i>
+    <h2 style="color:white; margin: 0 0 30px 0; font-size: 1.5rem; width: 100%;">Rotate Device to Play</h2>
+    <button onclick="startMobileFullscreen()" style="width: 100%; max-width: 280px; padding: 15px; background: var(--accent-color); color: white; border-radius: 30px; font-weight: bold; font-size: 1rem; border:none; cursor:pointer; box-sizing: border-box; white-space: normal; line-height: 1.4;">
         Enter Fullscreen Mode
     </button>
 </div>
