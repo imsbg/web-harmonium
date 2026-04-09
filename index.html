@@ -1,46 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <!-- ========================================================= -->
-    <!-- REAL SEO META DATA      -->
-    <!-- ========================================================= -->
-
-    <!-- Encoding & Mobile Viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
 
-    <!-- Primary Search Engine Tags -->
-    <title>Web Harmonium Pro | Harmonium Online</title>
-    <meta name="title" content="Web Harmonium Pro | Harmonium Online">
-    <meta name="description" content="Play Web Harmonium Pro online. A high-quality, professional virtual Indian harmonium keyboard with custom notations, real studio sounds, and smooth mobile touch support.">
+    <title>Web Harmonium Pro | Web Harmonium Online</title>
+    <meta name="title" content="Web Harmonium Pro | Web Harmonium Online">
+    <meta name="description" content="Play Web Harmonium online. A high-quality, professional virtual Indian harmonium keyboard with custom notations, real studio sounds, and smooth mobile touch support.">
     <meta name="keywords" content="Web Harmonium, Web Harmonium Pro, Virtual Harmonium, Online Harmonium, Play Harmonium Online, Harmonium Keyboard, Indian Instrument Simulator, Sandeep Biswal G">
     <meta name="author" content="Sandeep Biswal G">
 
-        <!-- Favicon & App Icons -->
-    <link rel="icon" type="image/png" href="https://imsbg.github.io/web-harmonium/webhpro.png">
+        <link rel="icon" type="image/png" href="https://imsbg.github.io/web-harmonium/webhpro.png">
     <link rel="apple-touch-icon" href="https://imsbg.github.io/web-harmonium/webhpro.png">
     <link rel="shortcut icon" href="https://imsbg.github.io/web-harmonium/webhpro.png">
 
 
-    <!-- Advanced Crawler Directives (Tells Google to rank this highly) -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
     <meta name="googlebot" content="index, follow">
     <meta name="bingbot" content="index, follow">
 
-    <!-- Open Graph (Facebook, WhatsApp, LinkedIn SEO) -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Web Harmonium Pro">
     <meta property="og:title" content="Web Harmonium Pro | Play Virtual Indian Harmonium Online">
     <meta property="og:description" content="Experience the best virtual harmonium on the web. Features real sounds, custom notations, and multi-touch support for mobile. Play instantly for free!">
     <meta property="og:image" content="https://imsbg.github.io/web-harmonium/banner-webh.png">
 
-    <!-- Twitter Card SEO -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Web Harmonium Pro | Play Virtual Indian Harmonium Online">
     <meta name="twitter:description" content="Experience the best virtual harmonium on the web. Features real sounds, custom notations, and multi-touch support for mobile. Play instantly for free!">
     <meta name="twitter:image" content="https://imsbg.github.io/web-harmonium/banner-webh.png">
 
-    <!-- Mobile Browser SEO & Web App Formatting -->
     <meta name="theme-color" content="#121212">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -114,7 +103,7 @@
         }
         .header-btn:hover { background: #333; color: var(--accent-color); }
 
-        /* --- Desktop Keyboard Area (Your Original) --- */
+        /* --- Desktop Keyboard Area --- */
         .piano-section {
             display: flex;
             justify-content: center;
@@ -183,7 +172,7 @@
 
         .hide-labels .key span { display: none; }
 
-        /* --- Notation Section (Your Original) --- */
+        /* --- Notation Section --- */
         .notation-section {
             flex: 1;
             background: #181818;
@@ -258,7 +247,7 @@
         }
         .play-btn:hover { background: #45a049; }
 
-        /* --- Dashboard (Your Original) --- */
+        /* --- Dashboard --- */
         .dashboard {
             display: flex;
             justify-content: space-evenly;
@@ -320,7 +309,7 @@
         #mobile-rotate-overlay {
             display: none; 
             position: fixed; 
-            top: 0; left: 0; right: 0; bottom: 0; /* Prevents 100vh address bar bugs */
+            top: 0; left: 0; right: 0; bottom: 0; 
             background: #000; 
             z-index: 9999; 
             flex-direction: column; 
@@ -332,45 +321,33 @@
             overflow: hidden;
         }
 
-        /* =========================================================
-           MOBILE UI OVERRIDE - Matches Your Screenshot Perfectly
-           ========================================================= */
         @media (max-width: 900px) {
             body { 
                 flex-direction: column; 
                 background: #1a1a1a; 
-                position: fixed; /* Keep it strictly bounded */
+                position: fixed; 
             }
-            
-            /* Hide Desktop Elements */
             header, .notation-section { display: none !important; }
-
-            /* Dashboard moves to top and mimics screenshot cards */
             .dashboard {
-                order: 1; /* Moves to top */
+                order: 1; 
                 border-top: none;
                 background: #1a1a1a;
                 padding: 15px;
                 gap: 15px;
                 flex: 0 0 auto;
             }
-
             .control-card {
-                background: #222; /* Darker card */
+                background: #222; 
                 border-radius: 12px;
                 padding: 15px;
                 box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-                min-width: 0; /* Prevents flex overflow */
+                min-width: 0;
             }
-
-            /* Make green elements match the screenshot */
             .control-card input[type="range"] { accent-color: #4CAF50; width: 100%; }
             .val-display { color: #4CAF50; font-size: 1.2rem; }
             .control-card h3 { color: #888; font-size: 0.75rem; letter-spacing: 1px; }
-
-            /* Piano moves to bottom and fills screen */
             .piano-section {
-                order: 2; /* Moves to bottom */
+                order: 2; 
                 flex: 1;
                 padding: 10px;
                 background: #1a1a1a;
@@ -378,7 +355,6 @@
                 align-items: flex-end;
                 overflow: hidden;
             }
-
             .keyboard-frame {
                 width: 100%;
                 height: 100%;
@@ -386,22 +362,16 @@
                 box-shadow: none;
                 padding: 0;
             }
-
             .keys-wrapper {
                 width: 100%;
                 height: 100%;
                 justify-content: center;
             }
-
-            /* Adjust keys for mobile landscape touch */
             .white-key { width: 6.5vw; height: 100%; border-radius: 0 0 6px 6px; }
             .black-key { width: 4.5vw; height: 60%; margin-left: -2.25vw; margin-right: -2.25vw; }
-            
-            /* Show Mobile overlay */
             #mobile-rotate-overlay { display: flex; }
         }
         
-        /* Hide Mobile overlay if already in landscape on mobile */
         @media (max-width: 900px) and (orientation: landscape) {
             #mobile-rotate-overlay { display: none; }
         }
@@ -409,7 +379,6 @@
 </head>
 <body>
 
-<!-- Mobile Setup Overlay (Strictly bounded and responsive to fit without zoom) -->
 <div id="mobile-rotate-overlay">
     <i class="fas fa-mobile-alt" style="font-size: 3rem; color: var(--accent-color); transform: rotate(90deg); margin-bottom: 20px;"></i>
     <h2 style="color:white; margin: 0 0 30px 0; font-size: 1.5rem; width: 100%;">Rotate Device to Play</h2>
@@ -418,7 +387,6 @@
     </button>
 </div>
 
-<!-- Info/Credit Modal -->
 <div id="info-modal" class="modal-overlay">
     <div class="modal-box">
         <h2 style="color:var(--accent-color); margin-top:0;">Web Harmonium Pro</h2>
@@ -444,8 +412,7 @@
 <div class="piano-section">
     <div class="keyboard-frame">
         <div class="keys-wrapper" id="piano-keyboard">
-            <!-- Populated by JS -->
-        </div>
+            </div>
     </div>
 </div>
 
@@ -455,7 +422,10 @@
     <div class="notation-controls">
         <div class="control-box" style="flex:1;">
             <label>Global Speed: <span id="tempo-display" style="color:var(--accent-color); font-weight:bold;">400ms</span></label>
-            <input type="range" id="tempo-slider" min="100" max="1000" step="50" value="400" oninput="updateTempo(this.value)" style="width: 100%; accent-color: var(--accent-color);">
+            <div style="display:flex; width:100%; gap:10px; align-items:center;">
+                <input type="range" id="tempo-slider" min="100" max="1000" step="50" value="400" oninput="updateTempo(this.value)" style="flex:1; accent-color: var(--accent-color);">
+                <button class="sm-btn" onclick="resetTempo()" title="Reset to 400ms"><i class="fas fa-undo"></i></button>
+            </div>
         </div>
 
         <div class="control-box selection-tool">
@@ -482,6 +452,12 @@
         <h3>Reverb</h3>
         <input type="checkbox" id="reverb-toggle" onchange="updateReverbState(this.checked)" style="transform: scale(1.5); margin: 5px;">
         <small id="reverb-status" style="font-size: 10px; color: #888; display:block; margin-top:5px;">OFF</small>
+    </div>
+
+    <div class="control-card">
+        <h3>MIDI Device</h3>
+        <span class="val-display" id="midi-status-text" style="font-size: 0.8rem; color: #888;">Disconnected</span>
+        <small id="midi-indicator" style="font-size: 10px; color: #444; margin-top:5px;"><i class="fas fa-circle"></i> Offline</small>
     </div>
 
     <div class="control-card">
@@ -542,7 +518,6 @@
     let transpose = 0;
     const octaveMap = [-36, -24, -12, 0, 12, 24, 36];
 
-    // Initialize audio without start overlay (Triggers on first action)
     async function initAudio() {
         if (audioInitialized) {
             if (context.state === 'suspended') await context.resume();
@@ -564,7 +539,6 @@
         initReverb();
     }
 
-    // Capture first desktop interaction to enable sound
     const startAudioContext = () => { initAudio(); removeInitEvents(); };
     const removeInitEvents = () => {
         ['mousedown', 'keydown'].forEach(e => document.removeEventListener(e, startAudioContext));
@@ -580,12 +554,10 @@
             div.id = `key-${cfg.midi}`;
             div.innerHTML = `<span>${cfg.k.toUpperCase()}</span>`;
             
-            // Mouse Events
             div.onmousedown = () => { initAudio(); noteOn(cfg.midi); };
             div.onmouseup = () => noteOff(cfg.midi);
             div.onmouseleave = () => noteOff(cfg.midi);
 
-            // Mobile Touch Events (Fixes bugs)
             div.addEventListener('touchstart', (e) => { e.preventDefault(); initAudio(); noteOn(cfg.midi); });
             div.addEventListener('touchend', (e) => { e.preventDefault(); noteOff(cfg.midi); });
             div.addEventListener('touchcancel', (e) => { e.preventDefault(); noteOff(cfg.midi); });
@@ -594,7 +566,6 @@
         });
     }
 
-    // Mobile Fullscreen & Orientation Lock
     async function startMobileFullscreen() {
         document.getElementById('mobile-rotate-overlay').style.display = 'none';
         initAudio();
@@ -678,6 +649,11 @@
     function updateTempo(val) {
         defaultDuration = parseInt(val);
         document.getElementById('tempo-display').innerText = val + "ms";
+        document.getElementById('tempo-slider').value = val;
+    }
+
+    function resetTempo() {
+        updateTempo(400);
     }
 
     function parseNotation(rawText) {
@@ -813,6 +789,91 @@
     };
 
     window.onload = renderKeyboard;
+</script>
+<script>
+// ==============================
+// 🎹 MIDI SUPPORT
+// ==============================
+
+let midiAccess = null;
+
+function requestMIDIAccess() {
+    try {
+        if (navigator.requestMIDIAccess) {
+            navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);
+        } else {
+            updateMIDIUI("Not Supported", false);
+        }
+    } catch (err) {
+        updateMIDIUI("Error", false);
+    }
+}
+
+function updateMIDIUI(name, isOnline) {
+    const statusText = document.getElementById('midi-status-text');
+    const indicator = document.getElementById('midi-indicator');
+    
+    statusText.innerText = name;
+    if (isOnline) {
+        statusText.style.color = "var(--accent-color)";
+        indicator.style.color = "var(--accent-color)";
+        indicator.innerHTML = '<i class="fas fa-circle"></i> Online';
+    } else {
+        statusText.style.color = "#888";
+        indicator.style.color = "#444";
+        indicator.innerHTML = '<i class="fas fa-circle"></i> Offline';
+    }
+}
+
+function onMIDISuccess(midi) {
+    midiAccess = midi;
+    
+    const updateInputs = () => {
+        const inputs = Array.from(midiAccess.inputs.values());
+        if (inputs.length > 0) {
+            updateMIDIUI(inputs[0].name, true);
+            for (let input of inputs) {
+                input.onmidimessage = getMIDIMessage;
+            }
+        } else {
+            updateMIDIUI("Disconnected", false);
+        }
+    };
+
+    updateInputs();
+    midiAccess.onstatechange = updateInputs;
+}
+
+function onMIDIFailure(error) {
+    updateMIDIUI("Failed", false);
+}
+
+function getMIDIMessage(message) {
+    const command = message.data[0];
+    const note = message.data[1];
+    const velocity = message.data.length > 2 ? message.data[2] : 0;
+
+    switch (command) {
+        case 144: // NOTE ON
+            if (velocity > 0) {
+                noteOn(note);
+            } else {
+                noteOff(note);
+            }
+            break;
+        case 128: // NOTE OFF
+            noteOff(note);
+            break;
+        case 176: // CONTROL (Volume)
+            if (note === 7) {
+                let vol = Math.round((velocity / 127) * 100);
+                onGainChange(vol);
+            }
+            break;
+    }
+}
+
+window.addEventListener("load", requestMIDIAccess);
 </script>
 </body>
 </html>
