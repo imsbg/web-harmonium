@@ -39,7 +39,7 @@
 
 ### Autoplay Notations:
 1. Scroll down to the notation text box.
-2. Type your sequence using standard English keys or Swarams (e.g., `S R G M P D N S2`).
+2. Type your sequence using standard English keys or Swarams (e.g., `45T5T54 457WQ4`).
 3. Adjust the speed using the slider and click **Play**.
 
 ## 👨‍💻 Credits & Acknowledgments
